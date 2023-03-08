@@ -27,6 +27,10 @@ def hello_world():
 
 @app.route('/testBrowser')
 def testBrowser():
+    global browser, dbClient
+    if not browser or not dbClient:
+        wakeUp()
+
     browser.get('https://example.com')
     return browser.page_source
 
@@ -51,7 +55,7 @@ def wakeUp():
     global browser, dbClient
 
     browser = webbrowser.Chrome(options=options)
-    dbClient = MongoClient(uri)
+    # dbClient = MongoClient(uri)
 
 
 def sleep():

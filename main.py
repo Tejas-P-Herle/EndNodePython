@@ -54,7 +54,7 @@ def scrape():
 def wakeUp():
     global browser, dbClient
 
-    browser = webbrowser.Chrome(options=options)
+    browser = webdriver.Chrome(options=options)
     # dbClient = MongoClient(uri)
 
 
